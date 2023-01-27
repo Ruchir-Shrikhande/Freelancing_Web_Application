@@ -1,0 +1,47 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    background: rgb(219, 226, 226);
+}
+.job-history-list a{
+    text-decoration: none;
+    color: black;
+}
+.job-history-list a:hover{
+    font-weight: bold;
+}
+.employeer-btn-div{
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+.employerprofile-button{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 25%;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+p{
+    font-size: medium;
+    padding-left: 5px;
+}
+h2{
+    text-align: center;
+}
+.logout-nav-button{
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+.logout-nav-button:hover{
+    color: black;
+    background-color: white;  
+}

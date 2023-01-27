@@ -1,0 +1,60 @@
+{{! <a href="/signup">Already have an account? Click here to log-in</a> }}
+
+<section class="form my-4 mx-5">
+  <div class="container">
+    <div class="row no-gutter">
+      <div class="col-lg-5">
+
+        <img src="../public/images/freelanceImg.jpg" class="img-fluid" alt="No image" />
+      </div>
+      <div class="col-lg-7 px-5 pt-5">
+        <h1 class="font-weight-bold py-3">Freelance</h1>
+        <h1>Sign In</h1>
+        <form action="/login" method="POST" id="login-form">
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="usernameInput">Username</label>
+              <input
+                id="usernameInput"
+                type="text"
+                name="usernameInput"
+                placeholder="username"
+                class="form-control my-3 p-4"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="passwordInput">Password</label>
+              <input
+                id="passwordInput"
+                type="password"
+                name="passwordInput"
+                placeholder="password"
+                class="form-control my-3 p-4"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7">
+              <button type="submit" class="btnclass1 mt-3 mb-5">Sign in</button>
+            </div>
+          </div>
+          <div class="login-success" id="login-success" hidden>Succesfully Logged in</div>
+          <div class="login-error" id="login-failure" hidden>Either Username or Password is incorrect</div>
+          <p>Don't have an account? <a href="/signup">Sign Up</a> </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{#if error}}<div id="login-error" class="text-goes-here">{{error}}</div>{{/if}}
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta
+  name="google-signin-client_id"
+  content="Y 81567677182-bhp8p69846jni7t22aq84itlrqeo16am.apps.googleusercontent.com"
+/>
+<script src="/public/js/login.js"></script>

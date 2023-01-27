@@ -1,0 +1,35 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    background: rgb(219, 226, 226);
+}
+.row{
+    background: white;
+    border-radius: 30px;
+}
+
+.no-gutter >[class*= 'col-']{
+    padding-left: 0;
+    padding-right: 0;
+}
+img{
+    /* border-top-left-radius: 30px ;
+    border-bottom-left-radius: 30px ; */
+    border-radius: 30px;
+}
+.btnclass1{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.btnclass1:hover{
+    background: white;
+    border: 1px solid;
+    color: black;
+}

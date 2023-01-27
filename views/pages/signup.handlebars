@@ -1,0 +1,175 @@
+<section class="form my-4 mx-5">
+  <div class="container">
+    <div class="row no-gutter">
+      <div class="col-lg-5">
+        <img src="../public/images/freelanceImg.jpg" class="img-fluid" alt="No image" />
+      </div>
+      <div class="col-lg-7 px-5 pt-5">
+        <h1 class="font-weight-bold py-3">Freelance</h1>
+        <h1>Sign up</h1>
+        <form action="/signup" method="POST" id="registration-form" enctype="multipart/form-data">
+
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="userName">Username</label>
+              <input
+                required
+                type="text"
+                name="userName"
+                id="userName"
+                placeholder="Username"
+                class="form-control my-3 p-4"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="firstName">FirstName</label>
+              <input
+                required
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="Firstname"
+                class="form-control my-3 p-4"
+              />
+            </div>
+            <div class="col-lg-7">
+              <label for="lastName">Lastname</label>
+              <input
+                required
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Lastname"
+                class="form-control my-3 p-4"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="email">Email</label>
+              <input required type="email" name="email" id="email" placeholder="Email" class="form-control my-3 p-4" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="password">Password</label>
+              <input
+                required
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                class="form-control my-3 p-4"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="confirmPassword">Confirm Password</label>
+              <input
+                required
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+                class="form-control my-3 p-4"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="contactNumber">Contact Number</label>
+              <input
+                required
+                type="text"
+                name="contactNumber"
+                id="contactNumber"
+                placeholder="Contact Number"
+                class="form-control my-3 p-4"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label id="gender">Gender</label><br />
+              <input required type="radio" id="male" name="gender" value="male" class="radio" />
+              <label for="male">Male</label><br />
+              <input type="radio" id="female" name="gender" value="female" />
+              <label for="female">Female</label><br />
+              <input type="radio" id="other_gender" name="gender" value="other" />
+              <label for="other_gender">Other</label>
+            </div>
+          </div>
+
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="dob">Date of Birth</label>
+              <input required type="date" name="dob" id="dob" class="form-control my-3 p-4" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="preferences">Preferences</label><br />
+              <input type="checkbox" id="Programming and Tech" name="preferences" value="Programming and Tech" />
+              <label for="Programming and Tech">Programming and Tech</label><br />
+
+              <input type="checkbox" id="Designing" name="preferences" value="Designing" />
+              <label for="Designing">Designing</label><br />
+
+              <input type="checkbox" id="Sales" name="preferences" value="Sales" />
+              <label for="Sales">Sales</label><br />
+
+              <input type="checkbox" id="Photography" name="preferences" value="Photography" />
+              <label for="Photography">Photography</label><br />
+
+              <input type="checkbox" id="Graphics and Design" name="preferences" value="Graphics and Design" />
+              <label for="Graphics and Design">Graphics and Design</label><br />
+
+              <input type="checkbox" id="Digital Marketing" name="preferences" value="Digital Marketing" />
+              <label for="Digital Marketing">Digital Marketing</label><br />
+
+              <input type="checkbox" id="Writing" name="preferences" value="Writing" />
+              <label for="Writing">Writing</label><br />
+
+              <input type="checkbox" id="Video and Animation" name="preferences" value="Video and Animation" />
+              <label for="Video and Animation">Video and Animation</label><br />
+
+              <input type="checkbox" id="Music and Audio" name="preferences" value="Music and Audio" />
+              <label for="Music and Audio">Music and Audio</label><br />
+
+              <input type="checkbox" id="Other" name="preferences" value="Other" />
+              <label for="Other">Other</label><br />
+              <br />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="resumeInput">Upload your resume</label>
+              <br />
+              Only .pdf format accepted
+              <input required type="file" id="resumeInput" class="form-control my-3 p-4" name="resumeInput" />
+            </div>
+          </div>
+
+          <div class="signup-success" id="signup-success" hidden>Succesfully Logged in</div>
+          <div class="signup-error" id="signup-failure" hidden>All fields needs to have valid values!</div>
+          <div class="form-row">
+            <div class="col-lg-7">
+              <button type="submit" class="btnclass1 mt-3 mb-5">Sign up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{#if error}}<div id="signup-error" class="text-goes-here">{{error}}</div>{{/if}}
+<script src="/public/js/signup.js"></script>

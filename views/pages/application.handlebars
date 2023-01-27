@@ -1,0 +1,114 @@
+{{! This is the navbar section }}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">Freelance</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        {{! <a class="nav-link active" aria-current="page" href="/home">Home</a> }}
+        <a class="nav-link" href="/profile/{{user.userName}}">Profile</a>
+        <a class="nav-link" href="/profile/{{user.userName}}/addPost">Post a Job</a>
+      </div>
+      {{! <div class="logout-nav-button">
+        <a class="nav-link" href="/logout">Log Out</a>
+      </div> }}
+      <button class="logout-nav-button btn-sm" onclick="location.href='/logout'">Logout</button>
+    </div>
+  </div>
+</nav>
+{{! ending of navbar section }}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 mx-auto mb-4">
+      <div class="section-title text-center">
+        <h1 class="top-c-sep">Application</h1>
+        <div>
+        </div>
+      </div>
+    </div>
+
+    <form
+      class="col-lg-9 offset-lg-3"
+      name="job_apply"
+      action="/application/{{postID}}/applied"
+      method="post"
+      id="applyjob-form"
+    >
+      <h1>{{user.userName}}</h1>
+      <div class="row justify-content-center">
+        <div class="form-row">
+          <div class="col-lg-7">
+            <label for="education">Education</label>
+            <input
+              type="text"
+              name="education"
+              id="education"
+              placeholder="Add relevant education, course, certification"
+              class="form-control my-3 p-4"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-lg-7">
+            <label for="workExpYrs">Relevant Work Experience in years</label>
+            <input
+              type="text"
+              name="workExpYrs"
+              id="workExpYrs"
+              placeholder="Work Experience in years"
+              class="form-control my-3 p-4"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-lg-7">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address" placeholder="Address" class="form-control my-3 p-4" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-lg-7">
+            <label for="ex_salary">Expected Salary per hour</label>
+            <input
+              type="text"
+              name="ex_salary"
+              id="ex_salary"
+              placeholder="Expected Salary per hour"
+              class="form-control my-3 p-4"
+            />
+          </div>
+        </div>
+
+        <div class="createpost-success" id="createpost-success" hidden>Succesfully Posted</div>
+        <div class="createpost-error" id="createpost-failure" hidden>All fields needs to have values</div>
+
+        <div class="form-row">
+          <div class="col-lg-7">
+            <button type="submit" class="app-post-btn">Post</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+  crossorigin="anonymous"
+></script>
+<script src="/public/js/applications.js"></script>
+
+{{#if error}}<div id="createpost-error" class="error">{{error}}</div>{{/if}}

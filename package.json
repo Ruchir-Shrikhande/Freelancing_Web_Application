@@ -1,0 +1,42 @@
+{
+  "name": "cs546-project",
+  "version": "1.0.0",
+  "description": "This website is an online platform to freelance services like such as web \r development, app development, logo designing, photography, and digital \r marketing etc. This website serves for both people who are looking for \r freelancers as well as jobs.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "seed": "node seedUser.js && node seedPost.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thirunaa/CS546-Project.git"
+  },
+  "author": "Team 23",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thirunaa/CS546-Project/issues"
+  },
+  "homepage": "https://github.com/Thirunaa/CS546-Project#readme",
+  "dependencies": {
+    "@khanacademy/tota11y": "^0.2.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
+    "email-validator": "^2.0.4",
+    "exphbs": "^1.2.0",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "gridfs": "^1.0.0",
+    "hbs": "^4.2.0",
+    "moment": "^2.29.4",
+    "mongodb": "^4.12.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7",
+    "paths": "^0.1.1",
+    "tota11y": "^0.1.6",
+    "xss": "^1.0.14"
+  }
+}

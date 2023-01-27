@@ -1,0 +1,139 @@
+{{! This is the navbar section }}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">Freelance</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        {{! <a class="nav-link active" aria-current="page" href="/home">Home</a> }}
+        <a class="nav-link" href="/profile/{{user.userName}}">Profile</a>
+        <a class="nav-link" href="/profile/{{user.userName}}/addPost">Post a Job</a>
+      </div>
+      {{! <div class="logout-nav-button">
+      <a class="nav-link" href="/logout">Log Out</a>
+    </div> }}
+      <button class="logout-nav-button btn-sm" onclick="location.href='/logout'">Logout</button>
+    </div>
+  </div>
+</nav>
+{{! ending of navbar section }}
+<div class="container">
+  <div class="row top-header-row">
+    <div class="col-lg-10 mx-auto mb-4">
+      <div class="section-title text-center">
+        <h1 class="top-c-sep">FREELANCE</h1>
+      </div>
+    </div>
+  </div>
+
+  {{!-- <button type="button" id="profile" onclick="location.href='/profile/{{user.userName}}'">Profile</button> --}}
+  <div class="text-center">
+    <h1>{{user.userName}}</h1>
+  </div>
+  <form class="d-flex justify-content-center" name="job_post" action="/post" method="post" id="createpost-form">
+    <div class="row justify-content-center body-row">
+      <div class="form-row">
+        <div class="col-lg-12">
+          <label for="location">Location</label>
+          <input type="text" name="location" id="location" placeholder="Location" class="form-control my-3 p-4" />
+        </div>
+        <div class="col-lg-12">
+          <label for="description">Job Description</label>
+          <input
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Description"
+            class="form-control my-3 p-4"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-lg-12">
+          <label for="title">Job Title</label>
+          <input type="text" name="title" id="title" placeholder="Title" class="form-control my-3 p-4" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-lg-12">
+          <label for="domain" class="form-label">Domain</label>
+          <select id="domain" name="domain" class="form-control my-3 p-4">
+            <option value="">--Domain--</option>
+            <option value="Programming and Tech">Programming and Tech</option>
+            <option value="Designing">Designing</option>
+            <option value="Sales">Sales</option>
+            <option value="Photography">Photography</option>
+            <option value="Graphics and Design">Graphics and Design</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Writing">Writing</option>
+            <option value="Video and Animation">Video and Animation</option>
+            <option value="Music and Audio">Music and Audio</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-lg-12">
+          <label for="tags">Tags</label>
+          <input
+            type="text"
+            name="tags"
+            id="tags"
+            placeholder="Write Something like design webdevelopement"
+            class="form-control my-3 p-4"
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-lg-12">
+          <label id="jobType" class="form-label">Job Type</label>
+          <select id="jobtype" name="jobType" class="form-control my-3 p-4">
+            <option value="">--JobType--</option>
+            <option value="In-Person">In-Person</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Remote">Remote</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-lg-12">
+          <label for="salary">Salary per hour</label>
+          <input
+            type="text"
+            name="salary"
+            id="salary"
+            placeholder="Salary per hour in $"
+            class="form-control my-3 p-4"
+          />
+        </div>
+      </div>
+
+      <div class="createpost-success" id="createpost-success" hidden>Succesfully Posted</div>
+      <div class="createpost-error" id="createpost-failure" hidden>All fields needs to have values</div>
+
+      <div class="form-row">
+        <div class="col-lg-12">
+          <button type="submit" class="btnclass1 mt-3 mb-5">Post</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+  crossorigin="anonymous"
+></script>
+<script src="/public/js/createPost.js"></script>
+{{#if error}}<div id="createpost-error" class="error">{{error}}</div>{{/if}}

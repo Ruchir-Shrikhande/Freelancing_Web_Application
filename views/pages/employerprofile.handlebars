@@ -1,0 +1,71 @@
+{{! This is the navbar section }}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">Freelance</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        {{! <a class="nav-link active" aria-current="page" href="/home">Home</a> }}
+        <a class="nav-link" href="/profile/{{user.userName}}">Profile</a>
+        <a class="nav-link" href="/profile/{{user.userName}}/addPost">Post a Job</a>
+      </div>
+      {{! <div class="logout-nav-button">
+        <a class="nav-link" href="/logout">Log Out</a>
+      </div> }}
+      <button class="logout-nav-button btn-sm" onclick="location.href='/logout'">Logout</button>
+    </div>
+  </div>
+</nav>
+{{! ending of navbar section }}
+<h1>{{employer.userName}}</h1>
+<div class="container">
+  <h2>Employer Details</h2>
+  <div class="card job-listing">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <p>Contact Number:{{user.contactNumber}}</p>
+      </li>
+      <li class="list-group-item">
+        <p>Email: {{user.email}}</p>
+      </li>
+
+      {{!-- <p>Employer Rating</p>
+      <p>{{employer.overallRating}}</p> --}}
+      <li class="list-group-item">
+        <p>Employer Rating: {{employer.overallRating}}</p>
+      </li>
+    </ul>
+
+  </div>
+
+  <h2>Job History posted</h2>
+  <div class="card employer-listing">
+    <ul class="list-group list-group-flush job-history-list">
+      {{#each historyOfJobs}}
+        <li class="list-group-item">
+          <div><p><a href="/post/{{this._id}}">{{this.title}}</a></p></div>
+        </li>
+      {{/each}}
+
+    </ul>
+  </div>
+  <div class="employeer-btn-div">
+    <button
+      class="employerprofile-button"
+      type="button"
+      id="backtouser"
+      onclick="location.href='/user/{{user.userName}}'"
+    >To this user</button>
+  </div>
+
+</div>

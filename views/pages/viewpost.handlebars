@@ -1,0 +1,172 @@
+{{!-- This is the navbar section --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+  <a class="navbar-brand" href="/home">Freelance</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+     {{!-- <a class="nav-link active" aria-current="page" href="/home">Home</a> --}}
+      <a class="nav-link" href="/profile/{{user.userName}}">Profile</a>
+      <a class="nav-link" href="/profile/{{user.userName}}/addPost">Post a Job</a>
+    </div>
+      {{!-- <div class="logout-nav-button">
+        <a class="nav-link" href="/logout">Log Out</a>
+      </div> --}}
+      <button class="logout-nav-button btn-sm" onclick="location.href='/logout'">Logout</button>
+  </div>
+</div>
+</nav>
+{{!-- ending of navbar section --}}
+<div class="container">
+    <h1>{{post.title}}</h1>
+  <ul class="list-group list-group-flush profile-data-list">
+    <li class="list-group-item">
+      <p>Location : {{post.location}}</p>
+    </li>
+    <li class="list-group-item">
+      <p>Posted on : {{post.postedTime}}</p>
+    </li>
+    <li class="list-group-item">
+      <p>Description: {{post.description}}</p>
+    </li>
+    <li class="list-group-item">
+      <p>Status: {{post.status}}</p>
+    </li>
+    <li class="list-group-item">
+      <p>Domain: {{post.domain}} </p>
+    </li>
+    <li class="list-group-item">
+      <p>jobtype: {{post.jobtype}} </p>
+    </li>
+    <li class="list-group-item">
+      <p> Salary per hour : {{post.salary}} </p>
+    </li>
+    <li class="list-group-item">
+      <p> tags: {{post.tags}} </p>
+    </li>
+  </ul>
+
+  <div>
+  {{#if thisUserPostFlag}}
+    <div>
+    {{#if activeFlag}}
+    <button class="viewpost-markjob-btn" type="button" id = "markcompleted" onclick="location.href='/post/{{post._id}}/completed'">Mark this job completed</button>
+    {{/if}}
+    </div>
+
+
+    <ul>
+    <li class="list-group-item">
+    <h2>Applicants</h2>
+    <div class="card applicants-list">
+        <ul class="list-group list-group-flush">
+        {{#if activeFlag}}
+          {{#each applicants}}
+          <li class="list-group-item">
+            <div><p><a href="/user/{{this}}">{{this}}</a>
+            <button class="viewpost-invite-btn" type="button" id = "invite" onclick="location.href='/post/{{../post._id}}/{{this}}/invite'">Invite</button>
+              <button class="viewpost-invite-btn" type="button" id = "invite" onclick="location.href='/post/{{../post._id}}/{{this}}/invite'">Reject</button>
+            </p>
+            </div>
+             {{!-- </li>
+            <li class="list-group-item">
+            <div><p><a href="/user/{{this}}">{{this}}</a>
+            <button class="viewpost-invite-btn" type="button" id = "invite" onclick="location.href='/post/{{../post._id}}/{{this}}/invite'">Reject</button>
+            </p>
+            </div>
+            </li> --}}
+          {{/each}}
+        {{else}}
+          {{#each applicants}}
+          <li class="list-group-item">
+            <div><p><a href="/user/{{this}}">{{this}}</a></p></div>
+            </li>
+          {{/each}}
+        {{/if}}
+        </ul>
+      </div>
+    </li>
+    </ul>
+
+  <ul>
+    <li class="list-group-item">
+    <h2>Candidates</h2>
+    <div class="card candidates-list">
+      <ul class="list-group list-group-flush">
+        {{#if activeFlag}}
+          {{#each post.candidates}}
+          <li class="list-group-item">
+            <div><p><a href="/user/{{this}}">{{this}}</a></p></div>
+            </li>
+          {{/each}}
+        {{else}}
+          {{#each post.candidates}}
+          <li class="list-group-item">
+            <div><p><a href="/user/{{this}}">{{this}}</a>
+            <button class="viewpost-reviewbtn-cls" type="button" onclick="location.href='/post/{{../post._id}}/reviewrate/{{this}}'">Review and Rate Employee</button></p></div>
+          </li>
+          {{/each}}
+        {{/if}}
+        </ul>
+      </div>
+    </li>
+    </ul>
+  
+
+
+  {{else}}
+    <div>
+    {{#if activeFlag}}
+      <div>
+        {{#if savedFlag}}
+          <div>
+            <button class="view-post-buttons" type="button" id = "save" onclick="location.href='/post/{{post._id}}/unsaved'">UnsaveThisJob</button>
+          </div>
+        {{else}}
+          <div>
+            <button class="view-post-buttons" type="button" id = "save" onclick="location.href='/post/{{post._id}}/saved'">SaveThisJob</button>
+          </div>
+        {{/if}}
+      </div>
+          <button class="view-post-buttons" type="button" id = "apply" onclick="location.href='/post/{{post._id}}/applied'">Apply</button>
+    {{else}}
+        <div>
+        {{#if candidateFlag}}
+        <button class="view-post-buttons" type="button" id = "reviewrateemployer" onclick="location.href='/post/{{post._id}}/reviewrate/{{post.userName}}'">Write a Review and Rate the Employer</button>
+        {{/if}}
+        </div>
+        <ul>
+    <li class="list-group-item">
+    <h2>Reviews</h2>
+    <div class="card reviews-list-list">
+      <ul class="list-group list-group-flush">
+      {{#each reviewIDs}}
+      <li class="list-group-item">
+        <div><p><a class="view-post-buttons" href="/post/{{../post._id}}/reviewedandrated/{{this._id}}">{{this.review}} </a></p></div>
+        </li>
+      {{/each}}
+      </ul>
+      </div>
+      </li>
+      </ul>
+
+    {{/if}}
+    </div>
+
+    <div>
+    <button class="view-post-buttons" type="button" id = "employer" onclick="location.href='/user/{{post.userName}}/employer'">Know Your Employer</button>
+    </div>
+
+    
+
+  {{/if}}
+  </div>
+
+  {{!-- <div><button type="button" id = "profile" onclick="location.href='/profile/{{user.userName}}'">Profile</button></div> --}}
+
+  {{!-- <div><a href="/home">Home</a></div> --}}
+
+  {{#if error}}<div id = "viewpost-error" class="error">{{error}}</div>{{/if}}
+</div>

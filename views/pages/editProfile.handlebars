@@ -1,0 +1,153 @@
+{{! This is the navbar section }}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">Freelance</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        {{! <a class="nav-link active" aria-current="page" href="/home">Home</a> }}
+        <a class="nav-link" href="/profile/{{user.userName}}">Profile</a>
+        <a class="nav-link" href="/profile/{{user.userName}}/addPost">Post a Job</a>
+      </div>
+      <button class="logout-nav-button btn-sm" onclick="location.href='/logout'">Logout</button>
+    </div>
+  </div>
+</nav>
+{{! ending of navbar section }}
+<section class="form my-4 mx-5">
+  <div class="container d-flex justify-content-center">
+    <div class="row edit-prof-cont">
+      <div class="col-lg-7 px-5 pt-5">
+        <h1 class="font-weight-bold py-3">Freelance</h1>
+        <h2>Edit {{user.userName}}'s Profile</h2>
+        <form
+          action="/profile/{{user.userName}}/edit"
+          method="POST"
+          id="profileEdit-form"
+          enctype="multipart/form-data"
+        >
+          {{! <input type="hidden" name="_method" value="PUT"> }}
+
+          <div class="form-row">
+            <div class="col-lg-12">
+              <label for="firstName">First Name</label>
+              <input
+                required
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="First Name"
+                class="form-control my-3 p-4"
+              />
+            </div>
+            <div class="col-lg-12">
+              <label for="lastName">Last Name</label>
+              <input
+                required
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Last Name"
+                class="form-control my-3 p-4"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+
+            <div class="col-lg-12">
+              <label for="contactNumber">Contact Number</label>
+              <input
+                required
+                type="text"
+                name="contactNumber"
+                id="contactNumber"
+                placeholder="Contact Number"
+                class="form-control my-3 p-4"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-12">
+              <label id="gender">Gender</label><br />
+              <input required type="radio" id="male" name="gender" value="male" class="radio" />
+              <label for="male">Male</label><br />
+              <input type="radio" id="female" name="gender" value="female" />
+              <label for="female">Female</label><br />
+              <input type="radio" id="other_gender" name="gender" value="other" />
+              <label for="other_gender">Other</label>
+            </div>
+          </div>
+
+          <br />
+          <br />
+
+          <div class="form-row">
+            <div class="col-lg-7">
+              <label for="preferences">Preferences</label><br />
+              <input type="checkbox" id="Programming and Tech" name="preferences" value="Programming and Tech" />
+              <label for="Programming and Tech">Programming and Tech</label><br />
+
+              <input type="checkbox" id="Designing" name="preferences" value="Designing" />
+              <label for="Designing">Designing</label><br />
+
+              <input type="checkbox" id="Sales" name="preferences" value="Sales" />
+              <label for="Sales">Sales</label><br />
+
+              <input type="checkbox" id="Photography" name="preferences" value="Photography" />
+              <label for="Photography">Photography</label><br />
+
+              <input type="checkbox" id="Graphics and Design" name="preferences" value="Graphics and Design" />
+              <label for="Graphics and Design">Graphics and Design</label><br />
+
+              <input type="checkbox" id="Digital Marketing" name="preferences" value="Digital Marketing" />
+              <label for="Digital Marketing">Digital Marketing</label><br />
+
+              <input type="checkbox" id="Writing" name="preferences" value="Writing" />
+              <label for="Writing">Writing</label><br />
+
+              <input type="checkbox" id="Video and Animation" name="preferences" value="Video and Animation" />
+              <label for="Video and Animation">Video and Animation</label><br />
+
+              <input type="checkbox" id="Music and Audio" name="preferences" value="Music and Audio" />
+              <label for="Music and Audio">Music and Audio</label><br />
+
+              <input type="checkbox" id="Other" name="preferences" value="Other" />
+              <label for="Other">Other</label><br />
+              <br />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-lg-12">
+              <label for="resumeInput">Upload your resume</label>
+              <br />
+              <p><i>*Only .pdf format accepted</i></p>
+              <input required type="file" id="resumeInput" class="form-control my-3 p-4" name="resumeInput" />
+            </div>
+          </div>
+
+          <div class="signup-success" id="signup-success" hidden>Succesfully Logged in</div>
+          <div class="signup-error" id="signup-failure" hidden>All fields needs to have valid values!</div>
+          <div class="form-row">
+            <div class="col-lg-12">
+              <button type="submit" class="btnclass1 mt-3 mb-5">Edit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{#if error}}<div id="signup-error" class="text-goes-here">{{error}}</div>{{/if}}
+<script src="/public/js/editProfile.js"></script>

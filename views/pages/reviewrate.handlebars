@@ -1,0 +1,69 @@
+{{! This is the navbar section }}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">Freelance</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        {{! <a class="nav-link active" aria-current="page" href="/home">Home</a> }}
+        <a class="nav-link" href="/profile/{{user.userName}}">Profile</a>
+        <a class="nav-link" href="/profile/{{user.userName}}/addPost">Post a Job</a>
+        <a class="nav-link" href="/profile/{{user.userName}}/edit" tabindex="-1">Edit Profile</a>
+      </div>
+      {{! <div class="logout-nav-button">
+        <a class="nav-link" href="/logout">Log Out</a>
+      </div> }}
+      <button class="logout-nav-button btn-sm" onclick="location.href='/logout'">Logout</button>
+    </div>
+  </div>
+</nav>
+{{! ending of navbar section }}
+<div class="container review-rate-cont">
+  <h1>Review and Rate {{rateUser}} for job {{post.title}}</h1>
+
+  <form action="/post/{{post._id}}/reviewrate/{{rateUser}}" method="POST" id="reviewrate-form">
+
+    <div class="mb-3">
+      <label for="reviewInput" class="form-label">Review</label>
+      <textarea
+        id="reviewInput"
+        name="reviewInput"
+        placeholder="Write your Review"
+        class="form-control"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="rateInput" class="form-label">Rate</label>
+      <select id="rateInput" name="rateInput" class="form-control">
+        <option value="">--Rate--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select></div>
+
+    {{! class="sub-review-btn"removed from submit div tag }}
+    <div class="mb-3"><button type="submit" class="btnclass1 sub-review-btn mt-3 mb-5">Submit Review and Rating</button></div>
+  </form>
+  <div class="mb-3"><button
+      type="button"
+      class="btnclass1 sub-review-btn mt-3 mb-5"
+      id="report"
+      onclick="location.href='/post/{{post._id}}/reviewrate/{{rateUser}}/flagged'"
+    >Report this user</button></div>
+</div>
+
+{{#if error}}<div id="viewpost-error" class="error">{{error}}</div>{{/if}}

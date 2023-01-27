@@ -1,0 +1,53 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  background: rgb(219, 226, 226);
+}
+
+.landing-page-cont {
+  margin-top: 30px;
+  background: white;
+  border-radius: 15px;
+  min-height: 650px;
+  max-width: 1000px;
+  text-align: center;
+}
+.job-listing a {
+  color: black;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.job-listing a:hover {
+  font-weight: bold;
+}
+.logout-nav-button {
+  margin-left: 9px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+.logout-nav-button:hover {
+  color: black;
+  background-color: white;
+}
+.home-drop-filter {
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.home-search-btn {
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.home-search-btn:hover {
+  background-color: black;
+}

@@ -1,0 +1,103 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  background: rgb(219, 226, 226);
+}
+.view-post-buttons {
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 20%;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.view-post-buttons:hover {
+  background: white;
+  border: 1px solid;
+  color: black;
+}
+
+.logout-nav-button {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+.logout-nav-button:hover {
+  color: black;
+  background-color: white;
+}
+.viewpost-invite-btn {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.viewpost-invite-btn:hover {
+  background-color: white;
+  color: black;
+}
+.viewpost-markjob-btn {
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 20%;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 10px;
+}
+.viewpost-markjob-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.applicants-list a {
+  color: black;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.applicants-list a:hover {
+  font-weight: bold;
+}
+
+.candidates-list a {
+  color: black;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.candidates-list a:hover {
+  font-weight: bold;
+}
+
+.reviews-list a {
+  color: black;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.reviews-list a:hover {
+  font-weight: bold;
+}
+
+.viewpost-reviewbtn-cls {
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 20%;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 10px;
+}
+.viewpost-reviewbtn-cls:hover {
+  background-color: rgb(75, 74, 74);
+  color: white;
+}
